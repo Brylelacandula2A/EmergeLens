@@ -19,12 +19,17 @@ public class GrabbableItem : MonoBehaviour, IInteractable
 
     private Transform holdPosition;
     private Rigidbody rb;
+    private Collider col;
     private bool isHeld = false;
+    public bool IsHeld => isHeld;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+
+        col = GetComponent<Collider>();
+
         // NEW: Automatically set up the audio player
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
@@ -71,7 +76,8 @@ public class GrabbableItem : MonoBehaviour, IInteractable
         if (holdPosition == null) return;
         
         isHeld = true;
-        rb.isKinematic = true; 
+        rb.isKinematic = true;
+        if (col != null) col.enabled = false;
         transform.position = holdPosition.position;
         transform.parent = holdPosition;
         transform.localRotation = Quaternion.identity;
@@ -89,6 +95,7 @@ public class GrabbableItem : MonoBehaviour, IInteractable
         isHeld = false;
         transform.parent = null;
         rb.isKinematic = false; 
-        rb.useGravity = true; 
+        rb.useGravity = true;
+        if (col != null) col.enabled = true;
     }
 }

@@ -67,7 +67,6 @@ public class VRControllerMovement : MonoBehaviour
             {
                 controller.height = crouchingHeight;
                 if (cameraOffset != null) cameraOffset.localPosition = new Vector3(0, cameraCrouchingHeight, 0);
-                if (characterModel != null) characterModel.gameObject.SetActive(false);
             }
             else
             {
