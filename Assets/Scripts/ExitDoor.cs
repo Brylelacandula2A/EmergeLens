@@ -4,24 +4,34 @@ public class ExitDoor : MonoBehaviour, IInteractable
 {
     [Header("Level 1 & 2 State")]
     public bool isUnlocked = false;
-    public LevelCompleteManager levelManager; 
+    public LevelCompleteManager levelManager;
     public bool prematureExitIsFatal = false;
-    public EarthquakeLevelManager earthquakeManager; 
+    public EarthquakeLevelManager earthquakeManager;
 
     [Header("Fire Level 2 State (New)")]
-    public bool requiresFireAlarm = false; 
+    public bool requiresFireAlarm = false;
+
+    [Header("Fire Level 3 - NPC Rescue (New)")]
+    public NPCFollowController npcToRescue;
 
     [Header("Level 3 State")]
     public bool isBlocked = false;
     public bool isFinalExit = false;
-    public LevelThreeManager levelThreeManager; 
-    public BagInventory playerGoBag; 
+    public LevelThreeManager levelThreeManager;
+    public BagInventory playerGoBag;
 
     public void OnGazeEnter() { }
     public void OnGazeExit() { }
 
     public void OnInteract()
     {
+        // 0. NPC rescue check (Fire Level 3)
+        if (npcToRescue != null && !npcToRescue.HasBeenFound)
+        {
+            if (VRMessageUI.Instance != null) VRMessageUI.Instance.ShowMessage("Find the distressed civilian first.");
+            return;
+        }
+
         // 1. Blocked door check (Level 3)
         if (isBlocked)
         {
@@ -46,14 +56,14 @@ public class ExitDoor : MonoBehaviour, IInteractable
         // 3. Normal Exit Logic (Level 1, Level 2, and completed Level 3)
         if (isUnlocked && levelManager != null)
         {
-            levelManager.TriggerLevelComplete(); 
+            levelManager.TriggerLevelComplete();
         }
         else
         {
             // NEW: Fire Level 2 early exit check
             if (requiresFireAlarm)
             {
-                if (VRMessageUI.Instance != null) 
+                if (VRMessageUI.Instance != null)
                     VRMessageUI.Instance.ShowMessage("Alert the whole building about the fire using the fire alarm first.");
             }
             // Existing Earthquake early exit check

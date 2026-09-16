@@ -23,7 +23,12 @@ public class FireLevelTwoManager : MonoBehaviour
     public float baseFillRate = 0.02f;
     public float toxicFillRate = 0.15f;
     public GameObject gameOverScreen;
-    
+
+
+    [Header("Smoke Mask")]
+    public GrabbableItem clothMask;
+    [Range(0f, 1f)] public float maskFillMultiplier = 0.4f;
+
     private float currentSmokeToxicity = 0f;
     private bool isAwake = false;
 
@@ -45,6 +50,13 @@ public class FireLevelTwoManager : MonoBehaviour
             if (playerCamera.position.y >= smokeCeilingHeight)
             {
                 currentRate = toxicFillRate;
+            }
+
+
+            // Wearing the smoke mask (cloth) slows toxicity buildup
+            if (clothMask != null && clothMask.IsHeld)
+            {
+                currentRate *= maskFillMultiplier;
             }
 
             currentSmokeToxicity += currentRate * Time.deltaTime;

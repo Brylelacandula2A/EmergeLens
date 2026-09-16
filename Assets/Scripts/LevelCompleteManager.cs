@@ -6,7 +6,6 @@ public class LevelCompleteManager : MonoBehaviour
     public GameObject levelCompleteUI;
     public string nextLevelName = "FireLevel"; 
     public string mainMenuName = "MainMenu";
-    
     private bool isLevelComplete = false;
 
     void Update()
