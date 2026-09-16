@@ -192,7 +192,7 @@ Light:
   serializedVersion: 13
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 1.94
   m_Range: 25
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5896,6 +5896,8 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   prematureExitIsFatal: 1
   earthquakeManager: {fileID: 0}
+  requiresFireAlarm: 0
+  npcToRescue: {fileID: 0}
   isBlocked: 1
   isFinalExit: 0
   levelThreeManager: {fileID: 1795731809}
@@ -10503,6 +10505,8 @@ MonoBehaviour:
   levelManager: {fileID: 29718639}
   prematureExitIsFatal: 0
   earthquakeManager: {fileID: 0}
+  requiresFireAlarm: 0
+  npcToRescue: {fileID: 0}
   isBlocked: 0
   isFinalExit: 1
   levelThreeManager: {fileID: 1795731809}
@@ -12107,6 +12111,8 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   prematureExitIsFatal: 0
   earthquakeManager: {fileID: 0}
+  requiresFireAlarm: 0
+  npcToRescue: {fileID: 0}
   isBlocked: 1
   isFinalExit: 0
   levelThreeManager: {fileID: 1795731809}
@@ -14931,6 +14937,8 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   prematureExitIsFatal: 0
   earthquakeManager: {fileID: 0}
+  requiresFireAlarm: 0
+  npcToRescue: {fileID: 0}
   isBlocked: 1
   isFinalExit: 0
   levelThreeManager: {fileID: 1795731809}
@@ -21304,6 +21312,8 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   prematureExitIsFatal: 0
   earthquakeManager: {fileID: 0}
+  requiresFireAlarm: 0
+  npcToRescue: {fileID: 0}
   isBlocked: 1
   isFinalExit: 0
   levelThreeManager: {fileID: 1795731809}
@@ -23338,6 +23348,8 @@ MonoBehaviour:
   levelManager: {fileID: 0}
   prematureExitIsFatal: 0
   earthquakeManager: {fileID: 0}
+  requiresFireAlarm: 0
+  npcToRescue: {fileID: 0}
   isBlocked: 1
   isFinalExit: 0
   levelThreeManager: {fileID: 1795731809}

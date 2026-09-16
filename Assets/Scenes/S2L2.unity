@@ -31913,6 +31913,8 @@ MonoBehaviour:
   baseFillRate: 0.02
   toxicFillRate: 0.1
   gameOverScreen: {fileID: 1271532491}
+  clothMask: {fileID: 0}
+  maskFillMultiplier: 0.4
 --- !u!4 &1353550961
 Transform:
   m_ObjectHideFlags: 0
@@ -45042,6 +45044,7 @@ MonoBehaviour:
   prematureExitIsFatal: 0
   earthquakeManager: {fileID: 0}
   requiresFireAlarm: 1
+  npcToRescue: {fileID: 0}
   isBlocked: 0
   isFinalExit: 0
   levelThreeManager: {fileID: 0}
